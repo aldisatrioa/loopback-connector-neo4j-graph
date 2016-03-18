@@ -1,0 +1,47 @@
+{
+  "name": "loopback-connector-neo4j-graph",
+  "version": "1.0.0",
+  "description": "Neo4j graph database connector for the LoopBack framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -G --timeout 10000 test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sunjith/loopback-connector-neo4j-graph.git"
+  },
+  "keywords": [
+    "connector",
+    "datasource",
+    "loopback",
+    "strongloop",
+    "neo4j",
+    "graph",
+    "nosql"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "sunjith"
+  },
+  "maintainers": [
+    {
+      "name": "sunjith"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/sunjith/loopback-connector-neo4j-graph/issues"
+  },
+  "dependencies": {
+    "bluebird": "^3.3.4",
+    "debug": "^2.2.0",
+    "loopback-connector": "^2.3.0",
+    "neo4j": "^2.0.0-RC2",
+    "node-uuid": "^1.4.7",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.2.2",
+    "sinon": "^1.17.3"
+  }
+}
