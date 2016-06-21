@@ -150,9 +150,7 @@ describe("neo4j-graph connector", function () {
         User.destroyAll(function () {
             Post.destroyAll(function () {
                 PostWithNumberId.destroyAll(function () {
-                    PostWithStringId.destroyAll(function () {
-                        done();
-                    });
+                    PostWithStringId.destroyAll(done);
                 });
             });
         });
@@ -1114,10 +1112,24 @@ describe("neo4j-graph connector", function () {
         });
     });
 
+    // Test raw query execution
+    it("should execute raw cypher query", function (done) {
+        db.connector.execute({
+            "query": "MATCH (n) RETURN n LIMIT 100"
+        }, function (err, result) {
+            // console.log(err, result);
+            should.not.exist(err);
+            should.exist(result);
+            done();
+        });
+    });
+
     after(function (done) {
         User.destroyAll(function () {
             Post.destroyAll(function () {
-                PostWithNumberId.destroyAll(done);
+                PostWithNumberId.destroyAll(function () {
+                    Product.destroyAll(done);
+                });
             });
         });
     });
