@@ -59,6 +59,10 @@ describe("neo4j-graph custom id name", function () {
             done(err);
         });
     });
+
+    after(function (done) {
+        Customer.deleteAll(done);
+    });
 });
 
 describe("neo4j-graph string id", function () {
@@ -108,6 +112,10 @@ describe("neo4j-graph string id", function () {
             customers[0].seq.should.equal("1");
             done(err);
         });
+    });
+
+    after(function (done) {
+        Customer.deleteAll(done);
     });
 });
 
@@ -171,6 +179,10 @@ describe("neo4j-graph default id type", function () {
             done(err);
         });
     });
+
+    after(function (done) {
+        Account.deleteAll(done);
+    });
 });
 
 describe("neo4j-graph default id name", function () {
@@ -192,7 +204,7 @@ describe("neo4j-graph default id name", function () {
             "emails": ["john@x.com", "john@y.com"],
             "age": 30
         }, function (err, customer) {
-            console.log(err, customer);
+            // console.log(err, customer);
             customer.id.should.equal("1");
             done(err, customer);
         });
@@ -218,5 +230,9 @@ describe("neo4j-graph default id name", function () {
                 done(err, customer);
             });
         });
+    });
+
+    after(function (done) {
+        Customer1.deleteAll(done);
     });
 });

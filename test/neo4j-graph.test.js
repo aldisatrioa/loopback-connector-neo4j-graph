@@ -1124,11 +1124,35 @@ describe("neo4j-graph connector", function () {
         });
     });
 
+    // Test raw query with params execution
+    it("should execute raw cypher query", function (done) {
+        db.connector.execute({
+            "query": "CREATE (n:Person {name: {name}}) RETURN n",
+            "params": {
+                "name": "Arthur"
+            }
+        }, function (err, result) {
+            // console.log(err, result);
+            // console.log("Person:", result[0].n.labels, result[0].n.properties);
+            should.not.exist(err);
+            should.exist(result);
+            result.should.have.lengthOf(1);
+            result[0].n.properties.name.should.be.equal("Arthur");
+            done();
+        });
+    });
+
     after(function (done) {
         User.destroyAll(function () {
             Post.destroyAll(function () {
                 PostWithNumberId.destroyAll(function () {
-                    Product.destroyAll(done);
+                    Product.destroyAll(function () {
+                        db.connector.execute({
+                            "query": "MATCH (n:Person) DELETE n"
+                        }, function (err, result) {
+                            done();
+                        });
+                    });
                 });
             });
         });
