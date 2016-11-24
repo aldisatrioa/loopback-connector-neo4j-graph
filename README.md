@@ -91,4 +91,4 @@ ModelClass.dataSource.connector.execute(
 );
 ```
 
-Note: For transactional queries, transaction may be passed in options.tx
+Note: For transactional queries, the transaction may be passed in options.tx
