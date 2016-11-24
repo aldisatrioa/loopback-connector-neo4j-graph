@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Cypher based Neo4j connector for loopback-datasource-juggler using the [node-neo4j](https://github.com/thingdom/node-neo4j) Neo4j REST API client library. This loopback connector was developed by referring to the codebase of [loopback-connector-mongodb](https://github.com/strongloop/loopback-connector-mongodb). Thanks to all the nodejs open source community, developers and contributors of the above libraries and others that made this possible.
+Cypher based Neo4j connector for loopback-datasource-juggler using the [node-neo4j](https://github.com/thingdom/node-neo4j) Neo4j REST API client library. This loopback connector was developed by referring to the codebase of [loopback-connector-mongodb](https://github.com/strongloop/loopback-connector-mongodb). Thanks to all the nodejs open source community, developers and contributors of the above libraries and others that made this possible. Thanks to the contributors and users of this library as well.
 
 ## Install
 
