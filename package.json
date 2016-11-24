@@ -1,10 +1,10 @@
 {
   "name": "loopback-connector-neo4j-graph",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Neo4j graph database connector for the LoopBack framework.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -G --timeout 10000 test/*.test.js"
+    "test": "mocha -G --timeout 10000 test/neo4j-graph.test.js"
   },
   "repository": {
     "type": "git",
