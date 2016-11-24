@@ -62,10 +62,12 @@ ModelClass.dataSource.connector.execute(
 ### Queries with parameters
 
 ```Javascript
-var query = "MATCH (u:User {email: {email}}) RETURN u";
-var params = {
+var cypher = {
+    query: "MATCH (u:User {email: {email}}) RETURN u",
+    params: {
         email: 'alice@example.com',
-    };
+    }
+};
 var options = {};
 var callback = function (err, results) {
     if (err) {
@@ -81,8 +83,8 @@ var callback = function (err, results) {
 };
 
 ModelClass.dataSource.connector.execute(
-    query,
-    params,
+    cypher,
+    [],
     options,
     callback
 );
