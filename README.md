@@ -17,6 +17,7 @@ npm install --save loopback-connector-neo4j-graph
 After install, change to the module directory and run **npm test**. Make sure Neo4j service is running on localhost.
 
 ```Shell
+cd node_modules/loopback-connector-neo4j-graph
 npm test
 ```
 
