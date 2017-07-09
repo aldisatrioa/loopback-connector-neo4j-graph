@@ -39,7 +39,7 @@ Add neo4j in server/datasources.json
 ## Usage
 
 Model objects would work just like in MongoDB. However, relations will not be mapped to graph vertices as of now.
-Use cypher for creating vertices and graph queries.
+Use cypher for creating vertices and for graph queries.
 
 ## Executing cypher
 
