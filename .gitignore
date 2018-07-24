@@ -12,6 +12,7 @@
 .idea
 .project
 .strong-pm
+package-lock.json
 
 # Logs
 logs
