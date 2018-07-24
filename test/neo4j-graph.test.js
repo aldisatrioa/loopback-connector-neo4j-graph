@@ -592,6 +592,34 @@ describe("neo4j-graph connector", function () {
         });
     });
 
+    it("replaceById: should replace the item", function (done) {
+        PostWithStringId.create({
+            "id": "125",
+            "title": "e",
+            "content": "EEE"
+        }, function (err, product) {
+            var newProduct = {
+                "title": "f",
+                "content": "FFF"
+            };
+
+            PostWithStringId.replaceById(product.id, newProduct, function (err1, inst) {
+                // console.log(err1, inst);
+                should.not.exist(err1);
+
+                PostWithStringId.findById(product.id, function (err2, updatedProduct) {
+                    // console.log(err2, updatedProduct);
+                    should.not.exist(err2);
+                    should.not.exist(updatedProduct._id);
+                    updatedProduct.id.should.be.eql(product.id);
+                    updatedProduct.title.should.be.equal(newProduct.title);
+                    updatedProduct.content.should.be.equal(newProduct.content);
+                    done();
+                });
+            });
+        });
+    });
+
     it("updateOrCreate: should append item to an Array if it doesn't already exist", function (done) {
         Product.dataSource.settings.allowExtendedOperators = true;
         Product.create({
@@ -663,18 +691,18 @@ describe("neo4j-graph connector", function () {
 
     it("updateOrCreate should create a new instance if it does not exist", function (done) {
         var post = {
-            "id": "123",
-            "title": "a",
-            "content": "AAA"
+            "id": "124",
+            "title": "d",
+            "content": "DDD"
         };
 
-        Post.updateOrCreate(post, function (err, p) {
+        PostWithStringId.updateOrCreate(post, function (err, p) {
             should.not.exist(err);
             p.title.should.be.equal(post.title);
             p.content.should.be.equal(post.content);
             p.id.should.be.eql(post.id);
 
-            Post.findById(p.id, function (err, p) {
+            PostWithStringId.findById(p.id, function (err, p) {
                 p.id.should.be.equal(post.id);
                 should.not.exist(p._id);
                 p.content.should.be.equal(post.content);
@@ -732,19 +760,19 @@ describe("neo4j-graph connector", function () {
     });
 
     it("save should create a new instance if it does not exist", function (done) {
-        var post = new Post({
+        var post = new PostWithStringId({
             "id": "123",
-            "title": "a",
-            "content": "AAA"
+            "title": "c",
+            "content": "CCC"
         });
 
-        post.save(post, function (err, p) {
+        post.save(function (err, p) {
             should.not.exist(err);
             p.title.should.be.equal(post.title);
             p.content.should.be.equal(post.content);
             p.id.should.be.equal(post.id);
 
-            Post.findById(p.id, function (err, p) {
+            PostWithStringId.findById(p.id, function (err, p) {
                 p.id.should.be.equal(post.id);
                 should.not.exist(p._id);
                 p.content.should.be.equal(post.content);

@@ -1,6 +1,6 @@
 {
   "name": "loopback-connector-neo4j-graph",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Neo4j graph database connector for the LoopBack framework.",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,7 @@
     "uuid": "^3.0.0"
   },
   "devDependencies": {
+    "loopback-datasource-juggler": "^3.23.0",
     "mocha": "^2.4.5",
     "should": "^8.2.2",
     "sinon": "^1.17.3"
